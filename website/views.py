@@ -31,13 +31,19 @@ def blog():
 def events():
     # Query all posts from the database
     posts = Post.query.all()
-    return render_template("events.html", user=current_user, posts=posts)
+    return render_template("events.html", user=current_user)
+
+@views.route("/genres")
+def genres():
+    # Query all posts from the database
+    posts = Post.query.all()
+    return render_template("genres.html", user=current_user)
 
 @views.route("/about")
 def about():
     # Query all posts from the database
     posts = Post.query.all()
-    return render_template("about.html", user=current_user, posts=posts)
+    return render_template("about.html", user=current_user)
 
 # Route for creating a post
 @views.route("/create-post", methods=['GET', 'POST'])

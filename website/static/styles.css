@@ -9,7 +9,7 @@ html, body {
   min-height: 100%; 
   position: relative;
   background-color: #E1EBEE;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 #navbar_logo {
@@ -24,7 +24,6 @@ html, body {
 
 .navbar {
   background-color:	#5072A7;
-  height: 4rem;
   margin-bottom: 5px;
 }
 
@@ -36,6 +35,18 @@ html, body {
 
 .navbar-nav {
   margin-right: 10px;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  top: 100%; /* Position the dropdown menu below the parent menu item */
+  left: 0;
+  margin-top: 0.125rem; /* Optional: Adjust the margin as needed */
+}
+
+.dropdown-menu {
+  min-width: 8rem; /* You can adjust this value as per your preference */
 }
 
 .footer {

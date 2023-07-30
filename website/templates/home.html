@@ -12,11 +12,13 @@
           <div class="carousel-item active c-item">
             <img src="../static/assets/tvgirl.jpg" class="d-block w-100 c-img" alt="Slide 1">
             <div class="carousel-caption top-0 mt-4">
-              <p class="mt-5 fs-3 text-uppercase">Discover your music</p>
+              <p class="mt-5 fs-3 text-uppercase">Discover your music at</p>
               <h1 class="display-1 fw-bolder text-capitalize">Music Hub</h1>
+              {% if not current_user.is_authenticated %}
               <a href="/sign-up">
               <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Sign Up Now</button>
               </a>
+              {% endif %}
             </div>
           </div>
 

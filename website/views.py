@@ -1,9 +1,10 @@
-"""views"""
+"""views."""
 import os
 from pathlib import Path
 from PIL import Image
 import secrets
-from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify, abort
+from flask import (Blueprint, render_template, request, flash,
+                   redirect, url_for, jsonify, abort)
 from flask_login import login_required, current_user
 from .models import Post, User, Comment, Like
 from .forms import RegistrationForm, UpdateAccountForm, PostForm
@@ -13,19 +14,19 @@ from . import db
 views = Blueprint("views", __name__)
 
 
-""" Route for the home page """
 @views.route("/")
 @views.route("/home")
 def home():
-    # Query all posts from the database
+    """Route for the home page."""
     posts = Post.query.all()
     return render_template("home.html", user=current_user, posts=posts)
 
 
-""" Route for blog page """
+# Route for blog page
 @views.route("/blog")
 @login_required
 def blog():
+    """Route for blog page."""
     page = request.args.get('page', 1, type=int)
     posts = Post.query.order_by(Post.date_created.desc()).paginate(page=page, per_page=4)
     return render_template("blog.html", user=current_user, posts=posts)

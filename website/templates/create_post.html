@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+{% extends "base.html" %} {% block title %}Create Post{% endblock %} {% block content
 %}
 <div class="content-section">
   <form method="POST" action="">
@@ -40,7 +40,7 @@
     </fieldset>
     </br>
     <div class="form-group">
-      {{ form.submit(class="btn btn-outline-info")}}
+      {{ form.submit(class="btn btn-outline-info", value="Post")}}
   </form>
 </div>
 {% endblock %}

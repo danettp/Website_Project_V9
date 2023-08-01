@@ -29,6 +29,8 @@
           ></i>
           {% endif %} {% if user.id == post.author %}
           <div class="btn-group">
+
+            <!-- Dropdown Menu for Post-->
             <button
               type="button"
               class="btn btn-sm btn-primary dropdown-toggle"
@@ -52,6 +54,8 @@
         {% endif %}
         </div>
       </div>
+
+      <!-- Post Content -->
       <div class="card-body">
         <div class="card-text post-title">{{post.title}}</div>
         <br />
@@ -70,6 +74,8 @@
                 <div>
                   <small class="text-muted"> {{comment.date_created}}</small>
                   {% if user.id == comment.author or user.id == post.author %}
+
+                  <!-- Dropdown Menu for Comment -->
                   <div class="btn-group">
                     <button
                       type="button"
@@ -102,6 +108,8 @@
           <small class="text-muted">No Comments</small>
           {% endif %}
         </p>
+
+        <!-- Create a Comment Form-->
         <form
           class="input-group mb-3"
           method="POST"
@@ -121,6 +129,7 @@
     </div>
     <br /> {% endfor %}
   </div>
+
 <!-- Paginating blog posts-->
 {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
 {% if page_num %}
@@ -132,8 +141,10 @@
 {% else %}
   ...
 {% endif %}
-{% endfor %}
+{% endfor %} 
 {% block footer %}
+
+<!-- Create Post Button-->
 <div align="center">
   <a href="/create-post"
     ><button type="button" class="btn btn-primary btn-lg">

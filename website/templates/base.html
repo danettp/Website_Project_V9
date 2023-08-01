@@ -30,7 +30,7 @@
 
           <!-- Brand -->
           <a class="navbar-logo" href="/home">
-            <img id="navbar_logo" src="../static/assets/logo.png">
+            <img id="navbar_logo" src="../static/assets/logo.png" alt="Music Hub Website Logo">
           </a>
 
           <!-- Button -->
@@ -98,7 +98,8 @@
     {% endfor %} 
     {% endif %} 
     {% endwith %}
-    <div class="container mt-5">{% block content %}{% endblock %}</div>
+    {% block content %}{% endblock %}
+    </div>
     
     <!-- Bootstrap and jQuery JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -111,7 +112,7 @@
       <div class="footer">
         <p class="float-end"><a href="#">Back to top</a></p>
         <p>&copy; 2023 Danett Pepito </p>
-      </footer>
+      </div>
     </div>
 
   </body>

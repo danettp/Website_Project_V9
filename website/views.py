@@ -33,6 +33,7 @@ def blog():
 
 
 @views.route("/events")
+@login_required
 def events():
     # Query all posts from the database
     posts = Post.query.all()
@@ -40,12 +41,14 @@ def events():
 
 
 @views.route("/genres")
+@login_required
 def genres():
     posts = Post.query.all()
     return render_template("genres.html", user=current_user)
 
 
 @views.route("/about")
+@login_required
 def about():
     posts = Post.query.all()
     return render_template("about.html", user=current_user)
@@ -117,6 +120,7 @@ def create_comment(post_id):
                 text=text, author=current_user.id, post_id=post_id)
             db.session.add(comment)
             db.session.commit()
+            flash('Comment posted.', category='success')
         else:
             flash('Post does not exist.', category='error')
 
@@ -136,6 +140,7 @@ def delete_comment(comment_id):
     else:
         db.session.delete(comment)  # Delete the comment from the database
         db.session.commit()
+        flash('Comment deleted.', category='success')
 
     return redirect(url_for('views.blog'))
 

@@ -148,8 +148,9 @@ html, body {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 
+/* Divide Footer from content */
 .divider {
-  margin: 3rem 0; /* Space out the Bootstrap <hr> more */
+  margin: 3rem 0;
 }
 
 /* Thin out the marketing headings */

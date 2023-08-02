@@ -219,9 +219,16 @@ about.html images
   background-position: center;
 }
 
+.bg-info {
+  background-image: url("../static/assets/sza.jpg");
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+}
+
 .bg-primary {
   /* Set the background image URL */
-  background-image: url("../static/assets/radiohead.jpg");
+  background-image: url("../static/assets/khalid.jpg");
   min-height: 600px;
 
   /* Set the background size to cover the entire element */

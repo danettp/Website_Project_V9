@@ -1,4 +1,4 @@
-"""views."""
+"""This file takes HTTP requests and returns HTTP response"""
 import os
 from pathlib import Path
 from PIL import Image

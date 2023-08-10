@@ -1,4 +1,4 @@
-"""This file is the models."""
+"""This file defines the database of the website."""
 
 from . import db
 from flask_login import UserMixin

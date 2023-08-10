@@ -31,14 +31,14 @@ class RegistrationForm(FlaskForm):
         """Custom validation for taken usernames."""
         user = User.query.filter_by(username=username.data).first()
         if user:
-            raise ValidationError('That Username is already taken.'
+            raise ValidationError('That Username is already taken. '
                                   'Please choose a different one.')
 
     def validate_email(self, email):
         """Custom validation to check if the email is already taken."""
         user = User.query.filter_by(email=email.data).first()
         if user:
-            raise ValidationError('That email is already taken.'
+            raise ValidationError('That email is already taken. '
                                   'Please choose a different one.')
 
 
@@ -62,7 +62,7 @@ class UpdateAccountForm(FlaskForm):
             # Query the database if username is the same
             if user:
                 # Raise a validation error if username exists
-                raise ValidationError('That Username is already taken.'
+                raise ValidationError('That Username is already taken. '
                                       'Please choose a different one.')
 
     def validate_email(self, email):
@@ -70,24 +70,8 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 # Raise a validation error if email exists
-                raise ValidationError('That email is already taken.'
+                raise ValidationError('That email is already taken. '
                                       'Please choose a different one.')
-
-
-# Custom validator for word count
-def word_count_check(form, field):
-    min_words = 5  # Minimum number of words allowed
-    max_words = 100  # Maximum number of words allowed
-
-    # Count the number of words in the field's input
-    word_count = len(field.data.split())
-
-    if word_count < min_words:
-        raise ValidationError(f'Text must have at least {5} words.')
-
-    if word_count > max_words:
-        raise ValidationError(f'You have reached the maximum of {500} words.')
-
 
 # Post Form
 class PostForm(FlaskForm):
@@ -95,6 +79,6 @@ class PostForm(FlaskForm):
 
     title = StringField('Title', validators=[DataRequired()])
     # Content of posts
-    text = TextAreaField('Text', validators=[DataRequired(), word_count_check])
+    text = TextAreaField('Text', validators=[DataRequired(), Length(min=5, max=1000)])
     # Submit Post Button
     submit = SubmitField('Update')
